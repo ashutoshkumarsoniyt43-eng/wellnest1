@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f2">
+  <meta name="description" content="An educational symptom pattern demonstration using two machine learning models.">
+  <title>Wellnest — Symptom pattern demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Wellnest home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M18 30c-7-3.2-10.5-8.1-10.5-14.6 5.2.1 8.8 2.6 10.5 7.4 1.7-4.8 5.3-7.3 10.5-7.4C28.5 21.9 25 26.8 18 30Z"/><path d="M18 28V13m0 6c-3.2-3.4-3.7-6.7-1.5-10 3.5 2 4 5.4 1.5 10Z"/></svg></span>
+      <span>wellnest<span class="brand-dot">.</span></span>
+    </a>
+    <div class="topbar-right"><span class="demo-tag"><i></i> EDUCATIONAL DEMO</span><a class="nav-link" href="#how-it-works">How it works</a></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A SMALL STEP TOWARD CLARITY</div>
+        <h1>Start with what<br>you <em>feel.</em></h1>
+        <p class="hero-text">Explore how two machine-learning models look at symptom patterns. A thoughtful starting point for a conversation with a health professional.</p>
+        <a class="scroll-cue" href="#checker"><span class="scroll-icon">↓</span> Explore the demo</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun-disc"></div><div class="plant plant-back"><span></span><span></span><span></span><span></span></div>
+        <div class="plant plant-front"><span></span><span></span><span></span></div>
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-note note-top"><span class="note-icon">✳</span><span>Made for learning<br><b>Built with care</b></span></div>
+        <div class="art-note note-bottom"><span class="pulse-dot"></span><span>Two models, one<br><b>clear comparison</b></span></div>
+        <div class="art-leaf leaf-one"></div><div class="art-leaf leaf-two"></div>
+      </div>
+    </section>
+
+    <div class="safety-strip"><span class="safety-icon">✦</span><p><strong>A gentle reminder</strong><span>This is an educational demonstration, not a medical diagnosis or a substitute for professional care. If you feel seriously unwell, contact a qualified healthcare professional.</span></p><span class="safety-arrow">↗</span></div>
+
+    <section id="checker" class="checker-section">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR SYMPTOM CHECK-IN</div><h2>What have you been<br><em>experiencing?</em></h2></div><span class="step-label">01 <span>—</span> 02</span></div>
+      <p class="section-intro">Choose the symptoms that fit. You can add several before running the comparison.</p>
+      <form id="diagnosis-form" novalidate>
+        <label class="field-label" for="symptom-search">Search and add symptoms <span>from the project list</span></label>
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="symptom-search" type="search" placeholder="Try “headache” or “high fever”" autocomplete="off" aria-autocomplete="list" aria-controls="symptom-options">
+          <span class="search-count" id="search-count">264 symptoms</span>
+          <div id="symptom-options" class="suggestions" role="listbox" hidden></div>
+        </div>
+        <div class="selected-heading"><span>YOUR SELECTION</span><span id="selected-count">0 added</span></div>
+        <div id="selected-symptoms" class="chips-empty">Your selected symptoms will appear here.</div>
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+        <div class="form-actions"><span class="privacy-note"><span>◉</span> Your selections are processed locally and aren’t saved.</span><button id="submit-button" class="primary-button" type="submit"><span>Get result</span><span class="button-arrow">↗</span></button></div>
+      </form>
+    </section>
+
+    <section id="results" class="results-section" hidden aria-live="polite">
+      <div class="results-title"><div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR RESULT</div><h2>For your <em>conversation.</em></h2></div><button id="reset-button" class="reset-button" type="button">↺ <span>New check-in</span></button></div>
+      <div id="selected-result" class="selected-result"></div>
+    </section>
+
+    <section id="how-it-works" class="how-section"><div class="eyebrow"><span class="eyebrow-line"></span> A LITTLE TRANSPARENCY</div><h2>Two perspectives.<br><em>One clear view.</em></h2><p>Wellnest uses both models from your project: M1 Random Forest and M2 XGBoost. It chooses the model with the higher probability internally and shows only that model’s result.</p><div class="how-steps"><article><span>01</span><div><b>Choose symptoms</b><p>Options come directly from your model’s 264-feature symptom list.</p></div></article><article><span>02</span><div><b>Run both models</b><p>The model outputs are checked behind the scenes; other predictions stay hidden.</p></div></article><article><span>03</span><div><b>Review the result</b><p>See only the selected model and its result.</p></div></article></div></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">✿</span><span>wellnest<span class="brand-dot">.</span></span></a><p>Made for learning. Always speak with a healthcare professional about your health.</p><span class="footer-year">PROJECT DEMO · 2026</span></footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>

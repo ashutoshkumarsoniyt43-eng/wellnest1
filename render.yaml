@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: wellnest-diagnosis-demo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py --project-dir model_data --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
